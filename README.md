@@ -69,10 +69,12 @@ python3 client.py
 ```
 1
 ```
-出力 (terminalでは#colorhex色付きで出力される)
+出力
 ```
  Response from server: #e28c96
 ```
+補足: terminalでは#colorhex色付きで出力される  
+![image](https://github.com/user-attachments/assets/ba6435e1-d651-4120-bc08-853a4b5ea6a0)
 
 #### 例3:
 入力
