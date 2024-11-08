@@ -37,6 +37,13 @@ def receive_response(sock):
         print('Socket timeout, ending listening for server messages')
         return None
 
+def print_colored_response(response):
+    if response.startswith('#') and len(response) == 7:
+        # ANSI escape code for colored text
+        print(f'\033[38;2;{int(response[1:3], 16)};{int(response[3:5], 16)};{int(response[5:7], 16)}m Response from server: {response}\033[0m')
+    else:
+        print('Response from server: {}'.format(response))
+
 def main():
     server_address = 'socket_file'
     sock = create_socket()
@@ -50,7 +57,10 @@ def main():
         send_request(sock, user_input)
         response = receive_response(sock)
         if response:
-            print('Complete response: {}'.format(response))
+            if user_input == '1':
+                print_colored_response(response)
+            else:
+                print('Response from server: {}'.format(response))
 
     finally:
         print('Closing socket')
