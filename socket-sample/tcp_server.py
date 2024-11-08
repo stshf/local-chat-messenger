@@ -47,11 +47,11 @@ while True:
             # もしデータがあれば以下の処理を行う
             if data:
                 # 受け取ったメッセージを処理
-                responce = 'Processing: ' + data_str
+                response = 'Processing: ' + data_str
 
                 # 処理したメッセージをクライアントに送り返す
                 # メッセージをbinary形式(encode)に戻してから送信
-                connection.sendall(responce.encode())
+                connection.sendall(response.encode())
             else:
                 # clientからデータが送られてこなければ、ループを終了
                 print('no data from ', client_address)
